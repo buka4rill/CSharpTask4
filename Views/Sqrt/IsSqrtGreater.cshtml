@@ -1,0 +1,135 @@
+@{
+    ViewData["Title"] = "Checker";
+}
+
+<html>
+    <body>
+        <div class="text-center">
+            <h1>@ViewData["Title"]</h1>
+        </div>
+
+        @if (ViewBag.FirstNum != null && ViewBag.SecondNum != null && ViewBag.FirstNum > ViewBag.SecondNum)
+        {
+
+            <div class="text-center">
+                <form asp-controller="Sqrt" asp-action="IsSqrtGreater" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="firstNumber"></label>
+                            <input type="text" class="form-control" name="firstNumber" id="firstNumber" placeholder="Put in the first number" />
+                        </div>
+                        <div class="form-group col">
+                            <label for="secondNumber"></label>
+                            <input type="text" class="form-control" name="secondNumber" id="secondNumber" placeholder="Put in the second number" />
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Get Result</button>
+                </form>
+            </div>
+
+            <div>
+                <p> 
+                    The number <span style="font-weight: bold;">@ViewBag.FirstNum</span> with Square root
+                    <span style="font-weight: bold;">@ViewBag.FirstNumSqrt</span> has a higher square root than
+                    the number <span style="font-weight: bold;">@ViewBag.SecondNum</span> with square root 
+                    <span style="font-weight: bold;">@ViewBag.SecondNumSqrt</span>
+                </p>
+            </div> 
+        }
+        else if (ViewBag.FirstNumSqrt < ViewBag.SecondNumSqrt)
+        {
+            <div class="text-center">
+                <div class="text-center">
+                    <form asp-controller="Sqrt" asp-action="IsSqrtGreater" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="firstNumber"></label>
+                                <input type="text" class="form-control" name="firstNumber" id="firstNumber" placeholder="Put in the first number" />
+                            </div>
+                            <div class="form-group col">
+                                <label for="secondNumber"></label>
+                                <input type="text" class="form-control" name="secondNumber" id="secondNumber" placeholder="Put in the second number" />
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Get Result</button>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <p> 
+                    The number <span style="font-weight: bold;">@ViewBag.FirstNum</span> with Square root
+                    <span style="font-weight: bold;">@ViewBag.FirstNumSqrt</span> has a lower square root than
+                    the number <span style="font-weight: bold;">@ViewBag.SecondNum</span> with square root 
+                    <span style="font-weight: bold;">@ViewBag.SecondNumSqrt</span>
+                </p>
+            </div>
+        }
+        else if (ViewBag.FirstNumSqrt == ViewBag.SecondNumSqrt)
+        {
+            <div class="text-center">
+                <div class="text-center">
+                    <form asp-controller="Sqrt" asp-action="IsSqrtGreater" method="POST">
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <label for="firstNumber"></label>
+                                <input type="text" class="form-control" name="firstNumber" id="firstNumber" placeholder="Put in the first number" />
+                            </div>
+                            <div class="form-group col">
+                                <label for="secondNumber"></label>
+                                <input type="text" class="form-control" name="secondNumber" id="secondNumber" placeholder="Put in the second number" />
+                            </div>
+                        </div>
+                        
+                        <button type="submit" class="btn btn-primary btn-block">Get Result</button>
+                    </form>
+                </div>
+            </div>
+
+            <div>
+                <p style="color: red">
+                    @ViewBag.Err1
+                </p>
+            </div>
+        }
+        else if (ViewBag.FirstNumberString != null && ViewBag.SecondNumberString != null)
+        {
+            <div class="text-center">
+                <form asp-controller="Sqrt" asp-action="IsSqrtGreater" method="POST">
+                    <div class="form-row">
+                        <div class="form-group col">
+                            <label for="firstNumber"></label>
+                            <input type="text" class="form-control" name="firstNumber" id="firstNumber" placeholder="Put in the first number" />
+                        </div>
+                        <div class="form-group col">
+                            <label for="secondNumber"></label>
+                            <input type="text" class="form-control" name="secondNumber" id="secondNumber" placeholder="Put in the second number" />
+                        </div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary btn-block">Get Result</button>
+                </form>
+            </div>
+
+            <div>
+                <p style="color: red">
+                    @ViewBag.Err2
+                </p>
+            </div>
+        }
+        @* else if (ViewBag.FirstNumberString) 
+        {
+            <div>
+                <p style="color: red">
+                    <span> Put in a number </span>
+                </p>
+            </div>
+        } *@
+    </body>
+</html>
+
+
+
+
